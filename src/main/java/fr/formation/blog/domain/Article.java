@@ -1,6 +1,7 @@
 package fr.formation.blog.domain;
 
-// @Component
+// @Component : Annotation permettant de déclarer un bean Spring.
+
 public class Article {
 
 	private String description;
