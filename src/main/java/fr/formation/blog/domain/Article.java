@@ -30,8 +30,7 @@ public class Article {
 	public Article() {
 	}
 
-	public Article(Integer id, String title, String description) {
-		this.id = id;
+	public Article(String title, String description) {
 		this.title = title;
 		this.description = description;
 	}

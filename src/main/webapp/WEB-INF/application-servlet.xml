@@ -2,23 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/data/jpa
-        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<!-- Activation du scan du package controller pour analyse des classes annotées -->
 	<context:component-scan
 		base-package="fr.formation.blog.controller" />
+	<mvc:resources location="/js/**" mapping="/js" />
+	<mvc:resources location="/css/**" mapping="/css" />
 
 	<!-- Bean métier basique -->
 	<bean id="article" class="fr.formation.blog.domain.Article">
-		<constructor-arg type="Integer" value="1" />
 		<constructor-arg type="String" value="Article n°1" />
 		<constructor-arg type="String"
 			value="Super description..." />
+		<property name="id" value="1" />
 	</bean>
 
 	<!-- Bean de configuration Spring : Objet permettant de résoudre les noms 
