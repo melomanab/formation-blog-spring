@@ -1,13 +1,30 @@
 package fr.formation.blog.domain;
 
-// @Component : Annotation permettant de déclarer un bean Spring.
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+// @Component : Annotation permettant de déclarer un bean Spring.
+@Entity
+@Table(name = "article")
 public class Article {
 
+	/**
+	 * Les propriétés Java sont automatiquement détéctée et liée à une colonne
+	 * SQL sauf si le contraire est indiqué (mot-clé java 'transient').
+	 */
 	private String description;
 
+	@Id
+	@Column(name = "idArticle")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	// @Basic
+	@Column
 	private String title;
 
 	public Article() {

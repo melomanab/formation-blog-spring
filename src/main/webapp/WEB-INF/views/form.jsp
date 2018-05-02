@@ -9,9 +9,9 @@
 </head>
 <body>
 	<h1>Création d'un article</h1>
-	<form>
+	<form method="post">
 		<div>
-			
+
 		</div>
 	</form>
 	<h2>

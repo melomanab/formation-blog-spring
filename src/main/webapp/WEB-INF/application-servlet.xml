@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
-    <!-- Activation du scan du package controller pour analyse des classes annotées -->
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+	<!-- Activation du scan du package controller pour analyse des classes annotées -->
 	<context:component-scan
 		base-package="fr.formation.blog.controller" />
 
@@ -27,4 +30,21 @@
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
+
+	<!-- Configuration JPA -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="blog" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory"
+			ref="entityManagerFactory" />
+	</bean>
+
+	<!-- Activation du scan du package repository pour analyser les interfaces 
+		et générer leurs implémentations CRUD++ -->
+	<jpa:repositories
+		base-package="fr.formation.blog.repository" />
 </beans>
