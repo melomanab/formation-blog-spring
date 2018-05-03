@@ -33,12 +33,6 @@ public class IndexController {
 	@Autowired
 	private ArticleRepository articleRepository;
 
-	// @GetMapping("/delete")
-	// ModelAndView deleteArticle(@RequestParam Integer articleId) {
-	// this.articleRepository.deleteById(articleId);
-	// return this.displayIndex();
-	// }
-
 	@GetMapping("/delete/{articleId}")
 	ModelAndView delete(@PathVariable(name = "articleId") Integer id) {
 		// Supprimer l'article.
@@ -46,6 +40,12 @@ public class IndexController {
 		// Renvoyer vers la vue welcome.
 		return this.displayIndex();
 	}
+
+	// @GetMapping("/delete")
+	// ModelAndView deleteArticle(@RequestParam Integer articleId) {
+	// this.articleRepository.deleteById(articleId);
+	// return this.displayIndex();
+	// }
 
 	@GetMapping("/edit/{id}")
 	ModelAndView displayEdit(@PathVariable Integer id) {
@@ -90,6 +90,11 @@ public class IndexController {
 		return mav;
 	}
 
+	@GetMapping("/search")
+	String displaySearch() {
+		return "search";
+	}
+
 	/**
 	 * Getter pour la propriété "article".
 	 *
@@ -132,5 +137,13 @@ public class IndexController {
 		this.articleRepository.save(newArticle);
 		// Renvoyer vers la page de liste des articles.
 		return this.displayIndex();
+	}
+
+	@PostMapping("/search")
+	ModelAndView validateSearch(@RequestParam String search) {
+		final ModelAndView mav = new ModelAndView("search");
+		mav.addObject("resultList",
+				this.articleRepository.findAllByTitleContaining(search));
+		return mav;
 	}
 }

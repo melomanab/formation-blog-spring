@@ -40,7 +40,9 @@
 	</c:forEach>
 	<h2>
 		<c:url value="/form.zzz" var="createUrl" />
+		<c:url value="/search.html" var="searchUrl" />
 		<a href="${createUrl}">Créer un article</a>
+		<a href="${searchUrl}">Rechercher des articles</a>
 	</h2>
 </body>
 </html>
