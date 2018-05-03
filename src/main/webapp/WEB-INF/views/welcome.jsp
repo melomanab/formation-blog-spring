@@ -5,8 +5,8 @@
 <html>
 <!-- Inclusion d'une page JSP dans la page actuelle.
  Attention aux éléments HTML uniques (balises head, body principalement). -->
+<!-- Utilisation de l'objet HttpServletRequest pour stocker un paramètre "title" -->
 <jsp:include page="header.jsp">
-	<!-- Utilisation de l'objet HttpServletRequest pour stocker un paramètre "title" -->
 	<jsp:param value="Welcome !" name="title" />
 </jsp:include>
 <body>
