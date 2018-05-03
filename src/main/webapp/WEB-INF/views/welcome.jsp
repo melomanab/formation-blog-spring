@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <!-- Inclusion d'une page JSP dans la page actuelle.
@@ -32,7 +33,9 @@
 					</a>
 				</span>
 			</div>
-			<p>${article.description}</p>
+			<p>
+				<spring:escapeBody>${article.description}</spring:escapeBody>
+			</p>
 		</div>
 	</c:forEach>
 	<h2>
