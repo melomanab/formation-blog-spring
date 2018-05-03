@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +29,20 @@ public class IndexController {
 	 */
 	@Autowired
 	private ArticleRepository articleRepository;
+
+	// @GetMapping("/delete")
+	// ModelAndView deleteArticle(@RequestParam Integer articleId) {
+	// this.articleRepository.deleteById(articleId);
+	// return this.displayIndex();
+	// }
+
+	@GetMapping("/delete/{articleId}")
+	ModelAndView delete(@PathVariable(name = "articleId") Integer id) {
+		// Supprimer l'article.
+		this.articleRepository.deleteById(id);
+		// Renvoyer vers la vue welcome.
+		return this.displayIndex();
+	}
 
 	/**
 	 * Méthode liée à l'URL "/form" pour une requête GET. Le client contacte

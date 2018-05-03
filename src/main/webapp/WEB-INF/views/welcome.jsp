@@ -9,11 +9,22 @@
 <jsp:include page="header.jsp">
 	<jsp:param value="Welcome !" name="title" />
 </jsp:include>
-<body>
+<body class="container">
 	<h1>Liste des articles</h1>
+	<c:url value="/images" var="imgUrl" />
+	<c:url value="/delete" var="deleteUrl" />
 	<c:forEach items="${articles}" var="article">
 		<div title="${article.id}">
-			<h2>${article.title}</h2>
+			<div style="display:inline-flex;justify-content: space-evenly;min-width: 300px;">
+				<h2>${article.title}</h2>
+				<span style="position:relative">
+<%-- 					<a href="/blog/delete.html?articleId=${article.id}"> --%>
+						<a href="${deleteUrl}/${article.id}.html">
+						<img src="${imgUrl}/delete.png"
+							style="position:absolute;top:50%;transform:translate(0, -50%);"/>
+					</a>
+				</span>
+			</div>
 			<p>${article.description}</p>
 		</div>
 	</c:forEach>

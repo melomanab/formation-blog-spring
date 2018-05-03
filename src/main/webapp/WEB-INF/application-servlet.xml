@@ -22,6 +22,7 @@
 	 de Spring. Ces URL correspondent à un accès à des ressources statiques. -->
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/images/" mapping="/images/**" />
 
 	<!-- Bean métier basique -->
 	<bean id="article" class="fr.formation.blog.domain.Article">
