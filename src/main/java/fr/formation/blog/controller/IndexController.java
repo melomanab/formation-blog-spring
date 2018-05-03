@@ -16,12 +16,26 @@ import fr.formation.blog.repository.ArticleRepository;
 @Controller
 public class IndexController {
 
+	/**
+	 * Injection du bean id="article".
+	 */
 	@Autowired
 	private Article article;
 
+	/**
+	 * Injection du bean d'implémentation d'ArticleRepository généré par Spring.
+	 */
 	@Autowired
 	private ArticleRepository articleRepository;
 
+	/**
+	 * Méthode liée à l'URL "/form" pour une requête GET. Le client contacte
+	 * l'application sur cette URL lorsqu'il veut afficher la page contenant le
+	 * formulaire pour éditer des articles.
+	 *
+	 * @return ModelAndView l'objet de Spring contenant les données du modèle et
+	 *         le nom de la vue à afficher.
+	 */
 	@RequestMapping("/form")
 	ModelAndView displayForm() {
 		ModelAndView mav = new ModelAndView("form");
@@ -30,9 +44,12 @@ public class IndexController {
 	}
 
 	/**
-	 * Définition du lien avec les URLs qui déclenchent cette méthode.
+	 * Méthode liée à l'URL "/welcome" pour une requête GET. Le client contacte
+	 * cette page lorsqu'il veut afficher la page d'accueil avec la liste des
+	 * articles.
 	 *
-	 * @return ModelAndView la vue welcome.
+	 * @return ModelAndView l'objet de Spring contenant les données du modèle
+	 *         (la liste des articles) et le nom de la vue à afficher (welcome).
 	 */
 	@RequestMapping(path = "/welcome", method = RequestMethod.GET)
 	ModelAndView displayIndex() {
@@ -44,14 +61,34 @@ public class IndexController {
 		return mav;
 	}
 
+	/**
+	 * Getter pour la propriété "article".
+	 *
+	 * @return Article l'article bean singleton défini dans le contexte Spring.
+	 */
 	public Article getArticle() {
 		return this.article;
 	}
 
+	/**
+	 * Setter pour la propriété "article".
+	 *
+	 * @param article le bean à injecter depuis le contexte Spring.
+	 */
 	public void setArticle(Article article) {
 		this.article = article;
 	}
 
+	/**
+	 * Méthode liée à l'URL "/form" pour une requête POST. Les paramètres
+	 * définis avec l'annotation "@RequestParam" permettent de récupérer
+	 * automatiquement les paramètres HTTP envoyés dans la requête.
+	 *
+	 * @param title le titre envoyé depuis le formulaire.
+	 * @param description la description envoyé depuis le formulaire.
+	 * @return ModelAndView le résultat de la méthode displayIndex() pour
+	 *         afficher l'accueil.
+	 */
 	@RequestMapping(path = "/form", method = RequestMethod.POST)
 	ModelAndView validateForm(@RequestParam String title,
 			@RequestParam(name = "descr") String description) {

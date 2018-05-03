@@ -15,7 +15,11 @@
 	<!-- Activation du scan du package controller pour analyse des classes annotées -->
 	<context:component-scan
 		base-package="fr.formation.blog.controller" />
+	<!-- Cette configuration permet de mettre en place automatiquement plusieurs bean
+	 Spring importants (plus d'infos : https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-config-enable) -->
 	<mvc:annotation-driven />
+	<!-- Configuration de pattern d'URL qui ne doivent pas activer DispatcherServlet
+	 de Spring. Ces URL correspondent à un accès à des ressources statiques. -->
 	<mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
 

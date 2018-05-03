@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Classe représentant une entité JPA décrite avec des annotations.
+ */
 // @Component : Annotation permettant de déclarer un bean Spring.
 @Entity
 @Table(name = "article")
