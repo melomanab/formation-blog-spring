@@ -3,7 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<jsp:include page="header.jsp" />
+<!-- c.f. welcome.jsp -->
+<jsp:include page="header.jsp">
+	<jsp:param value="Editer un article..." name="title" />
+</jsp:include>
 <body class="container">
 	<h1>Création d'un article</h1>
 	<form method="post">

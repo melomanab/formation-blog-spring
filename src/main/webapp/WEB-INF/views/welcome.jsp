@@ -3,10 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Liste des articles</title>
-</head>
+<!-- Inclusion d'une page JSP dans la page actuelle.
+ Attention aux éléments HTML uniques (balises head, body principalement). -->
+<jsp:include page="header.jsp">
+	<!-- Utilisation de l'objet HttpServletRequest pour stocker un paramètre "title" -->
+	<jsp:param value="Welcome !" name="title" />
+</jsp:include>
 <body>
 	<h1>Liste des articles</h1>
 	<c:forEach items="${articles}" var="article">
