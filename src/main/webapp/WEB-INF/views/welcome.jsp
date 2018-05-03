@@ -13,6 +13,7 @@
 	<h1>Liste des articles</h1>
 	<c:url value="/images" var="imgUrl" />
 	<c:url value="/delete" var="deleteUrl" />
+	<c:url value="/edit" var="editUrl" />
 	<c:forEach items="${articles}" var="article">
 		<div title="${article.id}">
 			<div style="display:inline-flex;justify-content: space-evenly;min-width: 300px;">
@@ -21,6 +22,12 @@
 <%-- 					<a href="/blog/delete.html?articleId=${article.id}"> --%>
 						<a href="${deleteUrl}/${article.id}.html">
 						<img src="${imgUrl}/delete.png"
+							style="position:absolute;top:50%;transform:translate(0, -50%);"/>
+					</a>
+				</span>
+				<span style="position:relative">
+						<a href="${editUrl}/${article.id}.html">
+						<img src="${imgUrl}/edit.png"
 							style="position:absolute;top:50%;transform:translate(0, -50%);"/>
 					</a>
 				</span>

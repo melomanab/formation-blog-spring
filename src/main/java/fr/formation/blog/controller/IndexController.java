@@ -2,6 +2,7 @@ package fr.formation.blog.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,6 +43,16 @@ public class IndexController {
 		this.articleRepository.deleteById(id);
 		// Renvoyer vers la vue welcome.
 		return this.displayIndex();
+	}
+
+	@GetMapping("/edit/{id}")
+	ModelAndView displayEdit(@PathVariable Integer id) {
+		ModelAndView mav = new ModelAndView("edit");
+		Optional<Article> result = this.articleRepository.findById(id);
+		if (result.isPresent()) {
+			mav.addObject("editArticle", result.get());
+		}
+		return mav;
 	}
 
 	/**
