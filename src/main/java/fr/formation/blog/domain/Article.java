@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 /**
@@ -19,6 +20,7 @@ public class Article {
 	 * Les propriétés Java sont automatiquement détéctée et liée à une colonne
 	 * SQL sauf si le contraire est indiqué (mot-clé java 'transient').
 	 */
+	@Lob
 	private String description;
 
 	@Id
