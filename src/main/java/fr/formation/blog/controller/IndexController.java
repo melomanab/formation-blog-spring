@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,13 @@ import fr.formation.blog.repository.ArticleRepository;
 
 @Controller
 public class IndexController {
+
+	/**
+	 * Déclaration conventionnelle d'un logger (c.f. SonarQube -> outil
+	 * d'analyse de qualité de code Java).
+	 */
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(IndexController.class);
 
 	/**
 	 * Injection du bean id="article".
@@ -82,11 +91,15 @@ public class IndexController {
 	 */
 	@RequestMapping(path = "/welcome", method = RequestMethod.GET)
 	ModelAndView displayIndex() {
+		IndexController.LOGGER
+				.debug("Requête HTTP déclenchant la méthode displayIndex().");
 		ModelAndView mav = new ModelAndView("welcome");
 		final List<Article> articles = new ArrayList<>();
 		articles.add(this.article);
 		articles.addAll(this.articleRepository.findAll());
 		mav.getModel().put("articles", articles);
+		IndexController.LOGGER.debug("{} articles chargés dans le modèle MVC.",
+				articles.size());
 		return mav;
 	}
 
