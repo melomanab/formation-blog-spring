@@ -1,12 +1,12 @@
 # README 3: Accès aux données avec Spring - II
 
-- Projet: BlogSpring
+- Formateur: *Jeremy*
 - Auteur: *Beatriz MORENO*
 
-Objectifs
-Rajouter fonctionnalité "Suppresion d'un article"
-Rajouter fonctionnalité "Edition d'un article"
-Rajouter fonctionnalité "Recherche d'un article"
+## Objectifs
+- Rajouter fonctionnalité "Suppresion d'un article"
+- Rajouter fonctionnalité "Edition d'un article"
+- Rajouter fonctionnalité "Recherche d'un article"
 
 ## Suppresion d'un article
 ### Modification de la vue `welcome.jsp`
