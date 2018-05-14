@@ -1,10 +1,10 @@
 # README 2: Accès aux données avec Spring - I
 Ce document décrit comment faire l'integration du framework de persistence de données *Hibernate/JPA* dans une application J2EE Spring
 
-- Projet: BlogSpring
+- Formateur: *Jeremy*
 - Auteurs: *Beatriz MORENO*
 
-## Architecture en couches
+## Arborescence du projet
 ### Création de l'interface `ArticleRepository.java`
 - Créer une interface appelée `ArticleRepository.java` dans le package `fr.formation.blog.repository`
 	- implémentant l'**interface  Spring `JpaRepository`**: 
