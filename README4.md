@@ -1,6 +1,6 @@
 # README 4: Intégration Logback, Filtre HTTP et WebServices avec Spring
 Ce document décrit l’intégration Logback et WebServices dans le framework Spring
-- Projet: BlogSpring
+- Formateur: *Jeremy*
 - Auteurs: *Beatriz MORENO*
 
 ## 1. Integration Logback
