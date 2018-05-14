@@ -1,8 +1,7 @@
 # README 1: Création d'un projet Spring
 Ce document décrit comment créer une application J2EE utilisant les bases du framework Spring
-- Projet: BlogSpring
-- Formateur: Jeremy 
-- Auteurs: *Beatriz MORENO*
+- Formateur: *Jeremy* 
+- Auteur: *Beatriz MORENO*
 
 ## Resumé de l'architecture du project
 ### src/main/java
@@ -14,7 +13,7 @@ Ce document décrit comment créer une application J2EE utilisant les bases du f
 	private String description;
 ```
 - Classe **IndexController.java** du package `gtm.formation.blog.presentation`;
-	- contenant des méthodes qui se changent de renvoyer des vues dynamiques au client
+	- contenant des méthodes qui se chargent de renvoyer des vues dynamiques au client
 	- et une propriété 'article' injectée par Spring	
 ```java
 @Controller
