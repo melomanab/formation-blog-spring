@@ -296,7 +296,12 @@ Pour que l'url soit prise en compte par Spring, il est nécessaire de rajouter *
 - https://spring.io/
 - https://projects.spring.io/spring-framework/
 
+## Suite du projet
+* [Accès aux données avec Spring - I ](https://github.com/melomanab/formation-blog-spring/blob/master/README2.md)​ 
 
+* [Accès aux données avec Spring - II ](https://github.com/melomanab/formation-blog-spring/blob/master/README3.md)​ 
+
+* [ Intégration Logback, Filtre HTTP et WebServices avec Spring ](https://github.com/melomanab/formation-blog-spring/blob/master/README4.md)​  
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
